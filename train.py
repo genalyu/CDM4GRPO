@@ -35,7 +35,7 @@ SYSTEM_PROMPT = """Please reason step by step, and put your final answer within 
 q_matrix = pd.read_csv("CDM/q_matrix.csv", index_col=0).values  
 q_matrix = torch.tensor(q_matrix, dtype=torch.float32)  
 def get_qa(split="train") -> Dataset:
-    data = load_from_disk('data/openr1-1500samples')  
+    data = load_dataset('genalyu/openr1-1500samples')  
     data = data.map(lambda x, idx: { 
         'prompt': [
             {'role': 'system', 'content': SYSTEM_PROMPT},
